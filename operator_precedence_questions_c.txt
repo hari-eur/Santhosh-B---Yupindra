@@ -19,7 +19,8 @@ D. Compilation Error
 
 Answer: C. 0
 
-Reason: Three operators =, ! and > are in the expression. The order of decreasing priority is !, >, =.  And ! operator is right to left associative. Thus !16 becomes 0.
+Reason: Three operators =, ! and > are in the expression. The order of decreasing priority is !, >, =.  And ! operator is right to left 
+associative. Thus !16 becomes 0.
 
 #include<stdio.h>
 int main()
@@ -37,7 +38,8 @@ D. 11
 
 Answer: A.  14
 
-Reason: The operators of decresing priority in the equation are pre-increment, + and =. In the first pre increment i is incremented to 6 but not assigned then the second increment is done and is assigned as 7 to both places. Thus, 7+7 = 14.
+Reason: The operators of decresing priority in the equation are pre-increment, + and =. In the first pre increment i is incremented to 
+6 but not assigned then the second increment is done and is assigned as 7 to both places. Thus, 7+7 = 14.
 
 #include<stdio.h>
 int main()
@@ -55,7 +57,8 @@ D. 6
 
 Answer: D. 6
 
-Reason: The operators of decresing priority in the equation are pre-decrement, + and =. In the first pre decrement i is changed to 4 but not assigned then the second decrement is done and is assigned as 3 to both places. Thus, 3+3 = 6.
+Reason: The operators of decresing priority in the equation are pre-decrement, + and =. In the first pre decrement i is changed to 4 
+but not assigned then the second decrement is done and is assigned as 3 to both places. Thus, 3+3 = 6.
 
 
 #include<stdio.h>
@@ -74,7 +77,10 @@ D. -4
 
 Answer: B. -3
 
-Reason: The operators in decreasing precedence are pre decrement, - and =. Expression is evaluated left to right. The first two --i are evauated first in the scope of the binary minus. So in the first decrement i changes to 4 but not assigned. Next decrement, i changes to 3 and assigned in both places. Now we get 3-3 =0. The expression now becomes 0 - --i - --i. Then in the third decrement value 2 is assigned 0 - 2 - --i. In the final --i, we get -2 - 1 = -3 
+Reason: The operators in decreasing precedence are pre decrement, - and =. Expression is evaluated left to right. The first two --i are 
+evauated first in the scope of the binary minus. So in the first decrement i changes to 4 but not assigned. Next decrement, i changes to 3 
+and assigned in both places. Now we get 3-3 =0. The expression now becomes 0 - --i - --i. Then in the third decrement value 2 is assigned
+ 0 - 2 - --i. In the final --i, we get -2 - 1 = -3 
 
 #include<stdio.h>
 int main()
@@ -92,7 +98,11 @@ D. 10
 
 Answer: C. 8
 
-Reason: The operators in decreasing precedence are post decrement, pre decrement and pre increment, - and =. Expression is evaluated left to right. There a 3 pre operations larger than the number of post operations which nullifies its precedence. The first two --i and ++i are evauated first in the scope of the binary plus. So in the first decrement i changes to 4 but not assigned. Next increment, i changes to 5 and assigned in both places. Now we get 5+5 = 10. The expression now becomes 10 - i-- - --i. Then in the third decrement value 4 is not assigned as it is a post decrement 10 - 5 + --i with i = 4. In the final --i, we get 10 - 5 + 3 = 8 
+Reason: The operators in decreasing precedence are post decrement, pre decrement and pre increment, - and =. Expression is evaluated 
+left to right. There a 3 pre operations larger than the number of post operations which nullifies its precedence. The first two --i and ++i 
+are evauated first in the scope of the binary plus. So in the first decrement i changes to 4 but not assigned. Next increment, i changes to 
+5 and assigned in both places. Now we get 5+5 = 10. The expression now becomes 10 - i-- - --i. Then in the third decrement value 4 is not 
+assigned as it is a post decrement 10 - 5 + --i with i = 4. In the final --i, we get 10 - 5 + 3 = 8 
 
 #include<stdio.h>
 int main()
@@ -108,6 +118,10 @@ B. 2
 C. 3
 D. Compilation Error
 
+Answer: C. 3
+
+Reason: The operators in the decreasing priority in the expression are (), =, comma.  First the expression inside the brackets are evaluated
+ first. So with the comma operators inside the last assigned value goes to a. Thus 3
 
 #include<stdio.h>
 int main()
@@ -122,6 +136,10 @@ B. Compilation Error
 C. Some Garbage Value
 D. 3
 
+Answer: D. 3
+
+Reason: The ~ operator takes bitwise complement of the number. Here -4 is -100, The bitwise complement 011 which is 3
+
 #include<stdio.h>
 int main()
 {
@@ -135,6 +153,10 @@ B. 8
 C. 6
 D. 7
 
+Answer: D. 7
+
+Reason: a = 111 is 7, b = 100 is 4, c = 010 is 2.  & has higher priority than |. 111 & 100 is 100 and then 100 | 010 is 110 which is 7
+
 #include<stdio.h>
 int main()
 {
@@ -145,6 +167,11 @@ A. 3
 B. 9
 C. 6 
 D. Compilation Error
+
+Answer: D. Compilation Error
+
+Reason: The post decrement is a unary operator that atleast requires a varaible which is not here as a constant 2 will provide a compilation
+error
 
 #include<stdio.h>
 	#define x =
@@ -161,6 +188,11 @@ B. Runtime Error
 C. 5
 D. Program incomplete
 
+Answer: C. 5
+
+Reason: First the macros are expanded so that the expression a x 5 becomes a = 5 and is compiled correctly
+
+
 #include<stdio.h>
 int main()
 {
@@ -175,6 +207,12 @@ B. HiHaloWorld6
 C. HiHaloWorld9
 D. 9
 
+Answer: B. HiHaloWorld6
+
+Reason: There are operators comma, = and () with increasing priority. So all the printfs get executed and the value that is stored in 'a' is 6
+as printf("HiHalo") returns 6. Thus HiHaloWorld6 is printed.
+
+Reason: 
 #include <stdio.h>
 int main(void) {
     int a=3;
@@ -187,6 +225,11 @@ A. Compilation Error
 B. Hiworld3
 C. 1Hiworld
 D. Hiworld1
+
+Answer: B. Hiworld3
+
+Reason: There are operators comma, = and () with increasing priority. So all the printfs get executed and the value that is stored in 'a' is 3
+as all the sub expressions seperated by commas are inside brackets the last value is retained. Thus Hiworld3 is printed.
 
 #include <stdio.h>
 int main(void) {
@@ -202,6 +245,9 @@ B. 1 1 1 3
 C. 1 1 0 3
 D. 1 0 1 2
 
+Answer: C. 1 1 0 3
+
+Reason: The operators post, pre increment, &&, || and = in the decreasing priority, First i++ && ++j is evaluated 
 #include <stdio.h>
 int main(void) {
     
