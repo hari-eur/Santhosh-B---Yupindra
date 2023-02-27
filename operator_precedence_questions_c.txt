@@ -247,7 +247,8 @@ D. 1 0 1 2
 
 Answer: C. 1 1 0 3
 
-Reason: The operators post, pre increment, &&, || and = in the decreasing priority, First i++ && ++j is evaluated 
+Reason: The operators post, pre increment, &&, || and = in the decreasing priority, First i++ is evaluated so that i is 1, But only 0 is assigned and ++j is not evaluated so j remains 0 and i++ && ++j = 0. Then 0 || k++, is eveluated to 0||2 = 1. Thus n = 1, i = 1, j = 0, k = 3.
+
 #include <stdio.h>
 int main(void) {
     
@@ -262,6 +263,11 @@ B. 1 1 0 2
 C. 1 1 0 3
 D. 0 1 0 2
 
+Answer: B. 1 1 0 2
+
+Reason: The operators post, pre increment, &&, || and = in the decreasing priority, First ++i is evaluated so that i is now 1 and also 1 is assigned, As i = 1, ++j is 
+not evaluated as anything ored with 1 is 1. Then 1 && k++, is eveluated to 1 && 2 = 1 and k is set to 3. Thus n = 1, i = 1, j = 0, k = 3.
+
 #include<stdio.h>
 int main()
 {
@@ -275,3 +281,9 @@ A. Compilation Error
 B. 266
 C. 10
 D. 136
+
+Answer: C. 10
+
+Reason:  A warning is generated: large integer implicitly truncated to unsigned type [-Woverflow]. This is because the range of unsigned char is 0 - 255 only, when a 
+value greated than that is stored, it gets truncated at the point where it exceeds and the only the remaining value difference is stored in the variable, Thus 9 is 
+stored. After a increment now num is 10.
