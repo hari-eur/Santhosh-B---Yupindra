@@ -1,0 +1,65 @@
+Explain the reason for your answers.
+1.  
+#include<stdio.h> 
+#define FALSE -1 
+#define NULL 0 
+#define TRUE 1 
+int main(){     
+	if(NULL)         
+	printf("NULL");     
+	else if(FALSE)         
+	printf("TRUE");     
+	else         
+	printf("FALSE");     
+	return 0; 
+} 
+
+A. FALSE  B. NULL  C. TRUE  D. Compilation Error
+
+Answer:  C. TRUE
+
+Reason: The #define in C defines macros in a program whihc get substituited while the program gets compiled. Here three macros FALSE : -1, NULL : 0, TRUE : 1 are defined.
+The if statements finally evaluate only after the macro expansion. NULL evaluates to 0 which is FALSE, Then FALSE evaluates as -1 which means a value is available for the compiler, turns 
+to TRUE. Thus TRUE is printed. Else part remains unexecuted.
+
+2.
+#include<stdio.h> 
+int main(){     
+	int i = 0, j = 0;         
+	if(i++ == j++)             
+	printf("%d %d", i--, j--);         
+	else             
+	printf("%d %d", i, j);         
+	return 0; 
+} 
+
+A. 0 0  B. 0 1  C. 1 0  D. 1 1 
+
+Answer: D. 1 1
+
+Reason: In the condition of the if statment both increments of i and j are post which means the value is first assigned and then incremented at the end of the statement. 
+#include<stdio.h> int main(){     int i = 0, j = 1, k = 0;         if(++k, j, i++)             printf("%d %d %d", i, j, k);     return 0; } A. Prints Nothing B. 1 1 0 C. 0 1 0 D. Compilation Error 
+
+#include<stdio.h> int main() {     char str[8] = "if block";     if(str == "if block")         printf("if block executed");     else         printf("else block executed");     return 0; } A. if block executed  B. else block executed  C. Compilation Error  D. None of the above 
+
+#include<stdio.h> int main() {     char str[] = "\0";     if(printf("%s",str))         printf("inside if block");     else         printf("inside else block");     return 0; } A. inside else block  B. inside if block  C. Compilation Error  D. Runtime Error 
+
+#include<stdio.h> int main() {     int i = 5, j = 5;     if(i == j);         printf("Equal");     else         printf("Not Equal");     return 0; } A. Compilation Error  B. Runtime Error  C. Equal  D. Not Equal 
+
+#include<stdio.h> int main(){     float me = 5.25;     double you = 5.25;     if(me == you)         printf("Hello\n");     else         break;     return 0; } A. Prints Nothing  B. Hello  C. Runtime Error  D. Compilation Error 
+
+#include<stdio.h> int main()  {      printf("\nab");      printf("\bsi");     printf("\rha");     return 0; } A. asiha B. abha C. aha D. hai 
+
+#include<stdio.h> int main(){     if("May I Get in")         printf("yes, Get in");     else          printf("No"); return 0; } A. Compilation Error  B. No  C. yes, Get in  D. None of above 
+
+#include<stdio.h> int main(){     int i = 5;     if(i == 3, 4)          printf("Hai");     else         printf("No Hai");     return 0; } A. Hai  B. No Hai  C. Compilation Error  D. None of the Above 
+
+#include<stdio.h> int main(){     char *str = {"2braces"};     char *str1 = {"2braces"};     if(*str == *str1)         printf("inside if block");     else          printf("inside else block");     return 0; } A. Runtime Error  B. Compilation Error  C. inside if block  D. inside else block 
+
+#include<stdio.h> int main() {     int i;     if(scanf("%d",&i)) //if we give input as 0         printf("inside if block");     else         printf("inside else block");     return 0; } A. Runtime Error  B. Compilation Error  C. inside else block  D. inside if block 
+
+#include<stdio.h> int main() {     if(sizeof('\0'))         printf("Hai");     else         printf("Bye");     return 0; } A. Bye  B. Hai  C. Compilation Error  D. None 
+
+#include <stdio.h> int main() {     int a=1;     printf("%d %d %d\n",++a,a,a++);      return 0; } A. 2,2,2  B. 2,2,3  C. 1,2,3  D. 3,3,1 
+
+#include<stdio.h> int main() { int i = 1; for(i = 0; i<10; i+3)     switch(i)     {         case 3:         printf("Hai. This is case 3");         break;         case 6:         printf("Hai. This is case 6");         break;         break;         default:          printf("Hai. This is default");         break;     } return 0; } A. Hai. This is case 3  B. Hai. This is case 6  C. Infinite Execution  D. Hai. This is default
