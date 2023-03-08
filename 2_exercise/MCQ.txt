@@ -37,22 +37,145 @@ A. 0 0  B. 0 1  C. 1 0  D. 1 1
 
 Answer: D. 1 1
 
-Reason: In the condition of the if statment both increments of i and j are post which means the value is first assigned and then incremented at the end of the statement. 
-#include<stdio.h> int main(){     int i = 0, j = 1, k = 0;         if(++k, j, i++)             printf("%d %d %d", i, j, k);     return 0; } A. Prints Nothing B. 1 1 0 C. 0 1 0 D. Compilation Error 
+Reason: In the condition of the if statment both increments of i and j are post which means the value is first assigned and then incremented at the end of the statement. So both i and j are 0 while evaluating the expression. At the end both i and j are 1. In the printf statments also the above reason applies. Thus 1 1 is printed
 
-#include<stdio.h> int main() {     char str[8] = "if block";     if(str == "if block")         printf("if block executed");     else         printf("else block executed");     return 0; } A. if block executed  B. else block executed  C. Compilation Error  D. None of the above 
+3.
+#include<stdio.h> 
+int main()
+{     
+	int i = 0, j = 1, k = 0;         
+	if(++k, j, i++)             
+	printf("%d %d %d", i, j, k);     
+	return 0; 
+} 
 
-#include<stdio.h> int main() {     char str[] = "\0";     if(printf("%s",str))         printf("inside if block");     else         printf("inside else block");     return 0; } A. inside else block  B. inside if block  C. Compilation Error  D. Runtime Error 
+A. Prints Nothing     B. 1 1 0     C. 0 1 0     D. Compilation Error 
 
-#include<stdio.h> int main() {     int i = 5, j = 5;     if(i == j);         printf("Equal");     else         printf("Not Equal");     return 0; } A. Compilation Error  B. Runtime Error  C. Equal  D. Not Equal 
+Answer: A. Prints Nothing
 
-#include<stdio.h> int main(){     float me = 5.25;     double you = 5.25;     if(me == you)         printf("Hello\n");     else         break;     return 0; } A. Prints Nothing  B. Hello  C. Runtime Error  D. Compilation Error 
+Reason: Inside the if statement first the ++k is a pre increment so k is both incremented and assigned, So k is now 1. Then j remains the same. At last i++ peforms a assign and increment  
+(1, 1, 0) is the new expression which has operators comma, brackets, = in increasing priority. First the contents inside the brackets are evaluated. In comma operators the last assigned value is asssigned which is 0. A 0 in if is taken as False. So nothing is printed.
 
-#include<stdio.h> int main()  {      printf("\nab");      printf("\bsi");     printf("\rha");     return 0; } A. asiha B. abha C. aha D. hai 
+4.
+#include<stdio.h> 
+int main() {     
+	char str[8] = "if block";     
+	if(str == "if block")         
+	printf("if block executed");     
+	else         
+	printf("else block executed");     
+	return 0; 
+} 
 
-#include<stdio.h> int main(){     if("May I Get in")         printf("yes, Get in");     else          printf("No"); return 0; } A. Compilation Error  B. No  C. yes, Get in  D. None of above 
+A. if block executed  B. else block executed  C. Compilation Error  D. None of the above 
 
-#include<stdio.h> int main(){     int i = 5;     if(i == 3, 4)          printf("Hai");     else         printf("No Hai");     return 0; } A. Hai  B. No Hai  C. Compilation Error  D. None of the Above 
+Answer: B. else block executed
+
+Reason: Comparing the character arrays using the == operator only compares their addresses which means here both have different values. Thus the exprsssion inside the if is evaluated to
+False. Thus executing the els eprt and printing else block executed.
+
+5.
+#include<stdio.h> 
+int main() {     
+	char str[] = "\0";     
+	if(printf("%s",str))         
+	printf("inside if block");     
+	else         
+	printf("inside else block");     
+	return 0; 
+} 
+
+A. inside else block  B. inside if block  C. Compilation Error  D. Runtime Error 
+
+Answer: A. Inside else block
+
+Reason: The printf function by default return the number characters printed into the out stream. Here only the null character \0 is in the character array which means the length of the array is 0. 0 inside an if is False. Thus the else part is executed, and Inside else block is printed. 
+
+5.
+#include<stdio.h> 
+int main() {     
+	int i = 5, j = 5;     
+	if(i == j);         
+	printf("Equal");     
+	else         
+	printf("Not Equal");     
+	return 0; 
+} 
+
+A. Compilation Error  B. Runtime Error  C. Equal  D. Not Equal 
+
+Answer: A. Compilation Error
+
+Reason: The semicolon recognized by a C compiler means this is the end of line. In case of the if followed by a semicolon it means that there no other else if or else blocks related with
+this if block. Thus a else block later throws an error that there is no preceeding if block to fall from.
+
+6.
+#include<stdio.h> 
+int main(){     
+	float me = 5.25;     
+	double you = 5.25;     
+	if(me == you)         
+	printf("Hello\n");     
+	else         
+	break;     
+	return 0; 
+}
+
+A. Prints Nothing  B. Hello  C. Runtime Error  D. Compilation Error 
+
+Answer:D. Compilation error
+
+Reason: The break statement in C is used to break loops and switch statements only, here it is used with an if statement. This throws an error break statement not within a loop.
+
+7.
+#include<stdio.h> 
+int main()  {      
+	printf("\nab");      
+	printf("\bsi");     
+	printf("\rha");     
+	return 0; 
+}
+
+A. asiha B. abha C. aha D. hai 
+
+Answer: D. hai
+
+Reason: In  the three printf statments, \n means a newline thus ab itself is printed in the next line. Then \b is the backspace, thus b is deleted. The \r is the carriage
+return that takes the further input to the beginning of the line. As we have asi, The beginning as is replaced by the next ha. Thus The output printed is hai.
+
+8.
+#include<stdio.h> 
+int main(){     
+	if("May I Get in")         
+	printf("yes, Get in");     
+	else          
+	printf("No"); 
+	return 0; 
+} 
+
+A. Compilation Error  B. No  C. yes, Get in  D. None of above 
+
+Answer: C.yes, Get in
+
+Reason: The if statement has a string which is evaluated to True. Thus yes, Get in is printed.
+
+9.
+#include<stdio.h> 
+int main(){     
+	int i = 5;     
+	if(i == 3, 4)          
+	printf("Hai");    
+	else         
+	printf("No Hai");     
+	return 0; 
+} 
+
+A. Hai  B. No Hai  C. Compilation Error  D. None of the Above 
+
+Answer:
+
+Reason:
+
 
 #include<stdio.h> int main(){     char *str = {"2braces"};     char *str1 = {"2braces"};     if(*str == *str1)         printf("inside if block");     else          printf("inside else block");     return 0; } A. Runtime Error  B. Compilation Error  C. inside if block  D. inside else block 
 
