@@ -18,9 +18,7 @@ A. FALSE  B. NULL  C. TRUE  D. Compilation Error
 
 Answer:  C. TRUE
 
-Reason: The #define in C defines macros in a program whihc get substituited while the program gets compiled. Here three macros FALSE : -1, NULL : 0, TRUE : 1 are defined.
-The if statements finally evaluate only after the macro expansion. NULL evaluates to 0 which is FALSE, Then FALSE evaluates as -1 which means a value is available for the compiler, turns 
-to TRUE. Thus TRUE is printed. Else part remains unexecuted.
+Reason: The #define in C defines macros in a program whihc get substituited while the program gets compiled. Here three macros FALSE : -1, NULL : 0, TRUE : 1 are defined. The if statements finally evaluate only after the macro expansion. NULL evaluates to 0 which is FALSE, Then FALSE evaluates as -1 which means a value is available for the compiler, turns to TRUE. Thus TRUE is printed. Else part remains unexecuted.
 
 2.
 #include<stdio.h> 
@@ -53,8 +51,7 @@ A. Prints Nothing     B. 1 1 0     C. 0 1 0     D. Compilation Error
 
 Answer: A. Prints Nothing
 
-Reason: Inside the if statement first the ++k is a pre increment so k is both incremented and assigned, So k is now 1. Then j remains the same. At last i++ peforms a assign and increment  
-(1, 1, 0) is the new expression which has operators comma, brackets, = in increasing priority. First the contents inside the brackets are evaluated. In comma operators the last assigned value is asssigned which is 0. A 0 in if is taken as False. So nothing is printed.
+Reason: Inside the if statement first the ++k is a pre increment so k is both incremented and assigned, So k is now 1. Then j remains the same. At last i++ peforms a assign and increment  (1, 1, 0) is the new expression which has operators comma, brackets, = in increasing priority. First the contents inside the brackets are evaluated. In comma operators the last assigned value is asssigned which is 0. A 0 in if is taken as False. So nothing is printed.
 
 4.
 #include<stdio.h> 
@@ -71,8 +68,7 @@ A. if block executed  B. else block executed  C. Compilation Error  D. None of t
 
 Answer: B. else block executed
 
-Reason: Comparing the character arrays using the == operator only compares their addresses which means here both have different values. Thus the exprsssion inside the if is evaluated to
-False. Thus executing the els eprt and printing else block executed.
+Reason: Comparing the character arrays using the == operator only compares their addresses which means here both have different values. Thus the exprsssion inside the if is evaluated toFalse. Thus executing the els eprt and printing else block executed.
 
 5.
 #include<stdio.h> 
@@ -106,8 +102,7 @@ A. Compilation Error  B. Runtime Error  C. Equal  D. Not Equal
 
 Answer: A. Compilation Error
 
-Reason: The semicolon recognized by a C compiler means this is the end of line. In case of the if followed by a semicolon it means that there no other else if or else blocks related with
-this if block. Thus a else block later throws an error that there is no preceeding if block to fall from.
+Reason: The semicolon recognized by a C compiler means this is the end of line. In case of the if followed by a semicolon it means that there no other else if or else blocks related withthis if block. Thus a else block later throws an error that there is no preceeding if block to fall from.
 
 6.
 #include<stdio.h> 
@@ -140,8 +135,7 @@ A. asiha B. abha C. aha D. hai
 
 Answer: D. hai
 
-Reason: In  the three printf statments, \n means a newline thus ab itself is printed in the next line. Then \b is the backspace, thus b is deleted. The \r is the carriage
-return that takes the further input to the beginning of the line. As we have asi, The beginning as is replaced by the next ha. Thus The output printed is hai.
+Reason: In  the three printf statments, \n means a newline thus ab itself is printed in the next line. Then \b is the backspace, thus b is deleted. The \r is the carriagereturn that takes the further input to the beginning of the line. As we have asi, The beginning as is replaced by the next ha. Thus The output printed is hai.
 
 8.
 #include<stdio.h> 
@@ -172,17 +166,99 @@ int main(){
 
 A. Hai  B. No Hai  C. Compilation Error  D. None of the Above 
 
-Answer:
+Answer: A. Hai
 
-Reason:
+Reason: The expression inside the if statement has operators == and , with decreasing precdence. First the == operator is evaluated i==3 is false so it is now if(0,4).In the comma operator the lats assigned value only assigned thus if(4) evaluates to if(True) and Hai is printed.
 
 
-#include<stdio.h> int main(){     char *str = {"2braces"};     char *str1 = {"2braces"};     if(*str == *str1)         printf("inside if block");     else          printf("inside else block");     return 0; } A. Runtime Error  B. Compilation Error  C. inside if block  D. inside else block 
+10.
+#include<stdio.h> 
+int main(){     
+	char *str = {"2braces"};     
+	char *str1 = {"2braces"};     
+	if(*str == *str1)         
+	printf("inside if block");     
+	else          
+	printf("inside else block");     
+	return 0; 
+}
 
-#include<stdio.h> int main() {     int i;     if(scanf("%d",&i)) //if we give input as 0         printf("inside if block");     else         printf("inside else block");     return 0; } A. Runtime Error  B. Compilation Error  C. inside else block  D. inside if block 
+A. Runtime Error  B. Compilation Error  C. inside if block  D. inside else block 
 
-#include<stdio.h> int main() {     if(sizeof('\0'))         printf("Hai");     else         printf("Bye");     return 0; } A. Bye  B. Hai  C. Compilation Error  D. None 
+Answer: C. inside if block
 
-#include <stdio.h> int main() {     int a=1;     printf("%d %d %d\n",++a,a,a++);      return 0; } A. 2,2,2  B. 2,2,3  C. 1,2,3  D. 3,3,1 
+Reason: The both character pointers are for the same address as they have the same contents. The pointers are then dereferenced and compared to have the same contents. Thus the if block content inside if block is printed.
 
-#include<stdio.h> int main() { int i = 1; for(i = 0; i<10; i+3)     switch(i)     {         case 3:         printf("Hai. This is case 3");         break;         case 6:         printf("Hai. This is case 6");         break;         break;         default:          printf("Hai. This is default");         break;     } return 0; } A. Hai. This is case 3  B. Hai. This is case 6  C. Infinite Execution  D. Hai. This is default
+11.
+#include<stdio.h> 
+int main() 
+{     
+	int i;     
+	if(scanf("%d",&i)) //if we give input as 0         
+	printf("inside if block");     
+	else         
+	printf("inside else block");     
+	return 0; 
+} 
+
+A. Runtime Error  B. Compilation Error  C. inside else block  D. inside if block 
+
+Answer: D. inside if block
+
+Reason: The scanf function returns the number of items that have been input successfully. Here just one variable i is got thus 1 is returned. The 1 implies a True. Thus the inside if block is printed. 
+
+12.
+#include<stdio.h> 
+int main() {     
+	if(sizeof('\0'))         
+	printf("Hai");     
+	else         
+	printf("Bye");     
+	return 0; 
+}
+
+A. Bye  B. Hai  C. Compilation Error  D. None 
+
+Answer: B. Hai
+
+Reason: Inside the if statment the sizeof operator returns the size occupied in the memory in bytes. here the character \0 has a size of 4 bytes as of every character. Thus if(4) is True and Hai is printed.
+
+13.
+#include <stdio.h> 
+int main() {     
+	int a=1;     
+	printf("%d %d %d\n",++a,a,a++);      
+	return 0; 
+}
+
+A. 2,2,2  B. 2,2,3  C. 1,2,3  D. 3,3,1 
+
+Answer: D. 3,3,1 
+
+Reason: In the printf statment there are operators post and pre increment with decreasing priority. In the post decrement the value is first assigned and then incremented. Then in the pre increment the value is incremented and assigned. Finally the value of a is 3 which is after the increments. Still the post increment holds the initial value only as it assigned and incremented. So 3,3,1 is printed.
+
+14.
+#include<stdio.h> 
+int main() { 
+	int i = 1; 
+	for(i = 0; i<10; i+3)     
+	switch(i){         
+		case 3:         
+			printf("Hai. This is case 3");         
+			break;         
+		case 6:         
+			printf("Hai. This is case 6");         
+			break;         
+			break;         
+		default:          
+			printf("Hai. This is default");         
+			break;     
+	} 
+	return 0; 
+}
+
+A. Hai. This is case 3  B. Hai. This is case 6  C. Infinite Execution  D. Hai. This is default
+
+Answer: C. Infinite Execution
+
+Reason: In the for loop the i value is never incremented thus the condition i<10 always succeeds and executes the switch infinitely. Also only the default case is printed. Thus it is a infinite execution.
