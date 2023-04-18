@@ -1,0 +1,6 @@
+ubuntu@Santhosh:~/sample$ realpath test.txt
+/home/ubuntu/sample/test.txt
+ubuntu@Santhosh:~/sample$
+ubuntu@Santhosh:~/sample$ pwd
+/home/ubuntu/sample
+ubuntu@Santhosh:~/sample$
