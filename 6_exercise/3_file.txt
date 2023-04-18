@@ -1,0 +1,30 @@
+ubuntu@Santhosh:~/sample$ wc test.txt
+ 12  35 192 test.txt
+ubuntu@Santhosh:~/sample$ head test.txt
+Hello
+How are You
+Hope you are doing good
+Hello from embedur
+Welcome to Chennai
+Welcome to Cricket Tournament
+Happy Journey
+Happy Xmas
+Happy new yesr 2023
+Happy May day
+ubuntu@Santhosh:~/sample$ cat test.txt
+Hello
+How are You
+Hope you are doing good
+Hello from embedur
+Welcome to Chennai
+Welcome to Cricket Tournament
+Happy Journey
+Happy Xmas
+Happy new yesr 2023
+Happy May day
+All the best
+Thank You
+ubuntu@Santhosh:~/sample$
+ubuntu@Santhosh:~/sample$ grep 'X' test.txt
+Happy Xmas
+ubuntu@Santhosh:~/sample$
