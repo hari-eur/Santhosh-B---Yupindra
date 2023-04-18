@@ -1,0 +1,15 @@
+######################## Outputs ###################################
+
+ubuntu@Santhosh:~$ mkdir sample
+ubuntu@Santhosh:~$ ls
+sample
+ubuntu@Santhosh:~$ cd sample/
+ubuntu@Santhosh:~/sample$ ls
+ubuntu@Santhosh:~/sample$ vi test.txt
+ubuntu@Santhosh:~/sample$ cat test.txt
+ubuntu@Santhosh:~/sample$
+ubuntu@Santhosh:~/sample$ ls
+test.txt
+ubuntu@Santhosh:~/sample$
+
+#####################################################################
